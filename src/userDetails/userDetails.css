@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+body {
+    display: flex;
+    font-size: 24px;
+    flex-direction: column;
+    align-items: center;
+    background: darkseagreen;
+    margin: 0;
+}
+
+.AA, h4 {
+    text-decoration: none;
+    font-family: 'Rubik+Doodle', serif;
+}
+
+.AA {
+    /*margin-top: 90px;*/
+    color: #1e7745;
+}
+
+.AA:hover {
+    color: #000000;
+}
+
+.UserDetail {
+    /*width: 240px;*/
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 6px;
+    padding: 12px;
+    background: #eee9cd;
+}
+.UserPerson{
+    display: flex;
+    justify-content: space-around;
+}
+
+.Id, .Name, .UserName, .Address,
+.Geo, .Lat, .Ing, .Zipcode, .City,
+.Street, .Suite, .Company, .NameCompany, .CatchPhrase, .Bs, .Email, .Phone, .Website {
+    padding: 3px;
+}
+
+.Id {
+    /*background: #e7db8d;*/
+    background: #b4d9b4;
+    color: #1e7745;
+}
+
+.Name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NameValue {
+    color: #8c8507;
+    font-size: 33px;
+    margin-left: 5px;
+}
+
+.NameValue {
+    font-style: italic;
+}
+
+.AddressUser {
+    display: flex;
+    flex-direction: column;
+    background: #eae1b4;
+    margin-bottom: 1em;
+}
+.AddressGeoPlace{
+    display: flex;
+}
+.Place {
+    display: flex;
+    flex-direction: column;
+}
+.Zipcode, .City, .Street, .Suite, .Bs, .CatchPhrase, .NameCompany {
+    display: flex;
+}
+
+.ZipcodeProp, .CityProp, .StreetProp, .SuiteProp, .BsProp, .NameCompanyProp, .CatchPhraseProp, .BsProp {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-right: 16px;
+}
+
+.ZipcodeValue, .CityValue, .StreetValue, .SuiteValue {
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.User, .Company {
+    display: flex;
+    flex-direction: column;
+}
+
+.CatchPhrase {
+
+}
+
+.CatchPhraseValue {
+    /*font-size: 11px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Email {
+
+}
+
+.Phone {
+
+}
+
+.Website {
+
+}
+
+.Geo {
+    width: 50%;
+    height: 90px;
+    margin: 0 20px 0 20px;
+    padding-bottom: 11px;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    background: #eee9cd;
+}
+
+.Lat, .Ing {
+    font-size: 19px;
+    margin: 0 10px 0 10px;
+    margin-bottom: 2px;
+    display: flex;
+    background: #eae1b4;
+}
+
+/*button{*/
+/*    width: 50%;*/
+/*    margin-left: 25%;*/
+/*}*/
+.buttonPost{
+    background: #b4d9b4;
+    border-radius: .5em;
+    margin-bottom: 1.2em;
+}
+.buttonPosts{
+    /*background: #b4d9b4;*/
+    /*border-radius: .5em;*/
+    /*margin-bottom: 1.2em;*/
+}
+.buttonPost:hover, .buttonPosts:hover{
+    /*background: #545353;*/
+    background: #3d835d;
+    color: #fffcfc;
+    transition-duration: .25s;
+}
+.boxPosts{
+    display: grid;
+    grid-template-areas:
+    "left" "leftCenter" "center" "rightCenter" "right";
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 5fr 5fr ;
+    width: 90vw;
+}
+.divPost{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.3vw;
+    border-radius: .4em;
+    background: #3d835d;
+}
+h4{
+    padding: 0 0.3em 0 0.9em;
+    color: #fffcfc;
+}

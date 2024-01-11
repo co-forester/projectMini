@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap');
+body{
+    font-family: Roboto,sans-serif;
+    font-size: 1vw;
+    background: darkseagreen;
+    margin: 0;
+}
+.divComm{
+    /*background: grey;*/
+
+    border-radius: 1em;
+    display: grid;
+    grid-template-areas:
+    "section1" "section2" "section3" "section4"
+    "section5" "section6" "section7" "section8";
+    grid-template-columns: 2.5fr 2.5fr 2.5fr 2.5fr;
+    grid-template-rows: 5fr 5fr;
+    grid-gap: .2em;
+    padding: .5em .5em .5em .5em;
+    margin: .5em 1em .5em 1em;
+}
+.cardComm{
+    /*height: 20em;*/
+    display: flex;
+    flex-direction: column;
+    background: #decab2;
+    border-radius: 1em;
+    padding: 1em 1em 1em 1em;
+}
+.lii {
+    /*background: black;*/
+    color: #fffcfc;
+    width: 90%;
+    padding: 0.2em 2em 0.2em 2em;
+}
+#card{
+    /*display: flex;*/
+    padding: 2em 1em 2em 1em;
+    background: #3d835d;
+    border-radius: 1em;
+    margin: 1em 1em 1em 1em;;
+}
+.p{
+    /*border: solid 0.1em red;*/
+    color: #386f8a;
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    font-family: 'Rubik+Doodle', serif;
+    background: darkseagreen;
+    padding-top: 90px;
+    margin: 0;
+}
+.a{
+    text-decoration: none;
+    font-size: 33px;
+    color: #1e7745;
+    margin-top: 0.8em;
+}
+.List{
+    list-style-type: none;
+    display: grid;
+    grid-template-areas:
+    "left"  "right";
+    grid-template-columns: 5fr 5fr;
+    grid-template-rows: 5fr 5fr ;
+    width: 90vw;
+}
+.Li{
+    width: 80%;
+    height: 6.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 3px 20px 3px 20px;
+    background: #eee9cd;
+    margin-bottom: 1em;
+    transition: 0.2s;
+    opacity: 0.6
+}
+.Li:hover{
+    opacity: 1;
+    font-style: italic;
+    transform:
+            rotateX(33deg)
+            rotateY(-3deg)
+            rotateZ(-1deg);
+    transition: 0.2s;
+}
+.buttonUsDet{
+    color: #1e7745;
+    width: 19em;
+    font-size: .9em;
+    background: #decab2;
+    border-radius: .5em;
+}
+.buttonUsDet:hover{
+    background: #545353;
+    color: #fffcfc;
+    transition-duration: .25s;
+}
+.aName{
+    color: #1e7745;
+}.aName:hover{
+     color: #8c8507;
+ }
