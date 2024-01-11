@@ -117,7 +117,7 @@ fetch(url1)
         divBsProp.innerHTML = `bs:`;
         divBsValue.innerHTML = `<b>${user.company.bs}</b>`;
         buttonPosts.innerHTML = `POSTS OF CURRENT USER`;
-        let flag = 1;
+        let flag: number = 1;
         buttonPosts.onclick = (): void =>{
             if(flag === 1){
                 postsTitles(); flag = 2
@@ -144,7 +144,7 @@ fetch(url1)
         divUserDetail.append(divId, divName, divUserPerson, buttonPosts)
     });
 function postsTitles(): void {
-    let url2 = 'https://jsonplaceholder.typicode.com/users/'+idValue+'/posts'
+    let url2: string = 'https://jsonplaceholder.typicode.com/users/'+idValue+'/posts'
     fetch(url2)
         .then(res => res.json())
         .then((posts): void => {console.log(posts);
