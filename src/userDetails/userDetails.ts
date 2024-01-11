@@ -1,7 +1,7 @@
 let a = document.createElement('a');
 a.classList.add('AA');
 a.innerText = `card index  (return)`;
-a.href = "./index.html";
+a.href = "../index.html";
 let url: URL = new URL(location.href);
 let idValue: string = url.searchParams.get('id');
 const url1: string = 'https://jsonplaceholder.typicode.com/users/' + idValue;
@@ -159,7 +159,7 @@ function postsTitles(): void {
                 buttonPost.classList.add('buttonPost');
                 buttonPost.innerText = 'IN DETAIL';
                 buttonPost.onclick = (): void =>{
-                    location.href = `./postDetails.html?title=${post.title}&idUser=${idValue}&id=${post.id}`
+                    location.href = `../postDetails/postDetails.html?title=${post.title}&idUser=${idValue}&id=${post.id}`
                 }
                 div.append(h4, buttonPost);
                 box.append(div);
