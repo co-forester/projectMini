@@ -1,12 +1,48 @@
+interface IUser {
+        id: number,
+        name: string,
+        username: string,
+        email: string,
+        address: [
+                street: string, 
+                suite: string, 
+                city: string, 
+                zipcode: string, 
+                geo:[
+                    lat: string,
+                        lng: string    
+                ]
+        ],
+        phone: string,
+        website: string,
+        company:[
+            name: string,
+            catchPhrase: string,
+            bs: string
+        ]
+}
+
+interface IPosts {
+    userId: number,
+    id: number,
+    title: string,
+    body: string
+}
+
+const userService = {
+        getAll: (): Promise<IUser[]> => fetch('https://jsonplaceholder.typicode.com/users/').then(value => value.json()),
+        getById: (id: number) => fetch('https://jsonplaceholder.typicode.com/users/' + idValue).then(response => response.json()),
+        getByIdPosts: (id: number) => fetch('https://jsonplaceholder.typicode.com/users/'+idValue+'/posts').then(res => res.json())
+};
+
 let a = document.createElement('a');
 a.classList.add('AA');
 a.innerText = `card index  (return)`;
 a.href = "../index.html";
 let url: URL = new URL(location.href);
-let idValue: string = url.searchParams.get('id');
-const url1: string = 'https://jsonplaceholder.typicode.com/users/' + idValue;
-fetch(url1)
-    .then(response => response.json())
+let idValue: number = +url.searchParams.get('id');
+userService.getById(idValue)
+    // .then(response => response.json())
     .then(user => {
         console.log(user);
         let divUserDetail = document.createElement('div');
@@ -118,7 +154,7 @@ fetch(url1)
         divBsValue.innerHTML = `<b>${user.company.bs}</b>`;
         buttonPosts.innerHTML = `POSTS OF CURRENT USER`;
         let flag: number = 1;
-        buttonPosts.onclick = (): void =>{
+        buttonPosts.onclick =  ()  =>{
             if(flag === 1){
                 postsTitles(); flag = 2
             }else{
@@ -142,12 +178,11 @@ fetch(url1)
         divUser.append(divUserName, divEmail, divPhone, divWebsite);
         divUserPerson.append(divUser, divAddressUser, divCompany);
         divUserDetail.append(divId, divName, divUserPerson, buttonPosts)
-    });
-function postsTitles(): void {
-    let url2: string = 'https://jsonplaceholder.typicode.com/users/'+idValue+'/posts'
-    fetch(url2)
-        .then(res => res.json())
-        .then((posts): void => {console.log(posts);
+    })
+
+function postsTitles() {
+    userService.getByIdPosts(+idValue)
+        .then((posts) => {console.log(posts);
             let box = document.createElement('div');
             box.classList.add('boxPosts');
             for (const post of posts) {

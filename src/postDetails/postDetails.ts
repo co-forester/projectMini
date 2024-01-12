@@ -1,19 +1,40 @@
-let url = new URL(location.href);
-const titleUs = url.searchParams.get('title');
-const id = url.searchParams.get('id');
-const idUser =url.searchParams.get('idUser');
+interface IPost {
+    userId: number,
+    id: number,
+    title: string,
+    body: string
+}
+
+interface IComment {
+    postId: number,
+    id: number,
+    name: string,
+    email: string,
+    body: string
+}
+
+const userService = {
+    getByIdPosts: (idUser: number): Promise<IPost[]> => fetch('https://jsonplaceholder.typicode.com/users/'+ idUser +'/posts').then(res => res.json())
+};
+
+const postService = {
+    getByIdPostComments: (id: number):  Promise<IComment[]> => fetch('https://jsonplaceholder.typicode.com/posts/' + id + '/comments').then(res => res.json())
+};
+
+let url: URL = new URL(location.href);
+const titleUs: string = url.searchParams.get('title');
+const id: number = +url.searchParams.get('id');
+const idUser: number = +url.searchParams.get('idUser');
 console.log(titleUs);
 console.log(idUser);
 console.log(id);
-let url3 = 'https://jsonplaceholder.typicode.com/users/'+idUser+'/posts';
 const card = document.getElementById('card');
 const divComm = document.createElement('div');
 divComm.classList.add('divComm');
-fetch(url3)
-    .then(res => res.json())
-    .then((posts) => {
+userService.getByIdPosts(idUser)
+    .then((posts:IPost[]): void => {
         console.log(posts);
-        let postUs = posts.find(function (post) {
+        let postUs: IPost = posts.find(function (post) {
             if (post.title === titleUs) return post
         });
         console.log(postUs);
@@ -37,13 +58,10 @@ fetch(url3)
         // };
         // card.append(but1);
         // card.append(but2);
-
-        let url4 = 'https://jsonplaceholder.typicode.com/posts/' + id + '/comments';
-        fetch(url4)
-            .then(res => res.json())
-            .then((results) => {
+        postService.getByIdPostComments(id)
+            .then((results): void => {
                 console.log(results);
-                results.forEach((comments)=>{
+                results.forEach((comment: IComment): void =>{
                     let cardComm = document.createElement('div');
                     cardComm.classList.add('cardComm');
                     let p41 = document.createElement('p');
@@ -56,11 +74,11 @@ fetch(url3)
                     p43.classList.add('p');
                     p44.classList.add('p');
                     h45.classList.add('h4');
-                    p41.innerText = `id: ` + comments.id;
-                    p42.innerText = `postId: ` + comments.postId;
-                    p43.innerText = `name: ` + comments.name;
-                    p44.innerText = `email: ` + comments.email;
-                    h45.innerText = `body: ` + comments.body;
+                    p41.innerText = `id: ` + comment.id;
+                    p42.innerText = `postId: ` + comment.postId;
+                    p43.innerText = `name: ` + comment.name;
+                    p44.innerText = `email: ` + comment.email;
+                    h45.innerText = `body: ` + comment.body;
 
                     cardComm.append(p41, p42, p43, p44, h45);
                     divComm.append(cardComm);

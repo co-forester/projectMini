@@ -1,5 +1,31 @@
-fetch('https://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
+interface IUser {
+    id: number,
+    name: string,
+    username: string,
+    email: string,
+    address: [
+        street: string,
+        suite: string,
+        city: string,
+        zipcode: string,
+        geo:[
+            lat: string,
+            lng: string
+        ]
+    ],
+    phone: string,
+    website: string,
+    company:[
+        name: string,
+        catchPhrase: string,
+        bs: string
+    ]
+}
+
+const userService = {
+    getAll: (): Promise<IUser[]> => fetch('https://jsonplaceholder.typicode.com/users/').then(value => value.json())
+}
+userService.getAll()
     .then((users) => {console.log(users);
         for (const user of users) {
             let ul = document.getElementById('list');
@@ -21,9 +47,8 @@ fetch('https://jsonplaceholder.typicode.com/users')
             buttonUsDet.onclick = ()=>{
                 location.href = `./userDetails/userDetails.html?id=${user.id}`
             }
-
-
             a.append(aId, aName);
             li.append(a, buttonUsDet);
             ul.appendChild(li);
-        }})
+        }
+    })

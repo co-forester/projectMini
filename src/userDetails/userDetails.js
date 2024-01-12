@@ -1,12 +1,16 @@
+var userService = {
+    getAll: function () { return fetch('https://jsonplaceholder.typicode.com/users/').then(function (value) { return value.json(); }); },
+    getById: function (id) { return fetch('https://jsonplaceholder.typicode.com/users/' + idValue).then(function (response) { return response.json(); }); },
+    getByIdPosts: function (id) { return fetch('https://jsonplaceholder.typicode.com/users/' + idValue + '/posts').then(function (res) { return res.json(); }); }
+};
 var a = document.createElement('a');
 a.classList.add('AA');
 a.innerText = "card index  (return)";
 a.href = "../index.html";
 var url = new URL(location.href);
-var idValue = url.searchParams.get('id');
-var url1 = 'https://jsonplaceholder.typicode.com/users/' + idValue;
-fetch(url1)
-    .then(function (response) { return response.json(); })
+var idValue = +url.searchParams.get('id');
+userService.getById(idValue)
+    // .then(response => response.json())
     .then(function (user) {
     console.log(user);
     var divUserDetail = document.createElement('div');
@@ -146,9 +150,7 @@ fetch(url1)
     divUserDetail.append(divId, divName, divUserPerson, buttonPosts);
 });
 function postsTitles() {
-    var url2 = 'https://jsonplaceholder.typicode.com/users/' + idValue + '/posts';
-    fetch(url2)
-        .then(function (res) { return res.json(); })
+    userService.getByIdPosts(+idValue)
         .then(function (posts) {
         console.log(posts);
         var box = document.createElement('div');
