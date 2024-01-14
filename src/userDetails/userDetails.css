@@ -29,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 6px;
-    padding: 12px;
+    /*padding: 12px;*/
     background: #eee9cd;
 }
 .UserPerson{
@@ -152,9 +152,10 @@ body {
     margin-bottom: 1.2em;
 }
 .buttonPosts{
-    /*background: #b4d9b4;*/
-    /*border-radius: .5em;*/
-    /*margin-bottom: 1.2em;*/
+    width: 90vw;
+    background: #bee1be;
+    border-radius: .5em;
+    margin-bottom: 1.2em;
 }
 .buttonPost:hover, .buttonPosts:hover{
     /*background: #545353;*/
