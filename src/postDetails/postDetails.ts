@@ -21,6 +21,10 @@ const postService = {
     getByIdPostComments: (id: number):  Promise<IComment[]> => fetch('https://jsonplaceholder.typicode.com/posts/' + id + '/comments').then(res => res.json())
 };
 
+let a = document.createElement('a');
+a.classList.add('AA');
+a.innerText = `card index  (return)`;
+a.href = "../index.html";
 let url: URL = new URL(location.href);
 const titleUs: string = url.searchParams.get('title');
 const id: number = +url.searchParams.get('id');
@@ -31,10 +35,11 @@ console.log(id);
 const card = document.getElementById('card');
 const divComm = document.createElement('div');
 divComm.classList.add('divComm');
+debugger
 userService.getByIdPosts(idUser)
-    .then((posts:IPost[]): void => {
+    .then((posts):void => {
         console.log(posts);
-        let postUs: IPost = posts.find(function (post) {
+         let postUs: IPost = posts.find(function (post: IPost) {
             if (post.title === titleUs) return post
         });
         console.log(postUs);
@@ -82,7 +87,7 @@ userService.getByIdPosts(idUser)
 
                     cardComm.append(p41, p42, p43, p44, h45);
                     divComm.append(cardComm);
-                    document.body.append(divComm)
+                    document.body.append(a, divComm)
                 })
 
             })
