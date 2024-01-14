@@ -35,7 +35,6 @@ console.log(id);
 const card = document.getElementById('card');
 const divComm = document.createElement('div');
 divComm.classList.add('divComm');
-debugger
 userService.getByIdPosts(idUser)
     .then((posts):void => {
         console.log(posts);
