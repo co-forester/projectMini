@@ -51,9 +51,8 @@ body{
     font-size: 1.5vw;
     font-family: 'Rubik+Doodle', serif;
     margin-left: 50%;
-}
-/**/
-.AA {
-    /*margin-top: 90px;*/
     color: #1e7745;
+}
+.AA:hover {
+    color: #000000;
 }
